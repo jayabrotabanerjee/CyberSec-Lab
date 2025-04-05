@@ -711,26 +711,30 @@ nmap --script-updatedb
 
 ### Metasploit Framework
 
-A Ruby-based penetration testing platform developed by Rapid7, providing tools to identify, exploit, and remediate vulnerabilities. It includes:
+A Ruby-based penetration testing platform developed by Rapid7, providing tools to identify, exploit, and remediate vulnerabilities. 
+It includes:
 
-    Exploits: Pre-built code to target specific vulnerabilities (e.g., buffer overflows, code injection)14.
-    Payloads: Post-exploitation tools (e.g., Meterpreter shells, reverse shells)4.
-    Auxiliaries: Scanners, fuzzers, and reconnaissance tools34.
-    Used by ethical hackers and security teams to simulate attacks and harden defenses13.
+    Exploits: Pre-built code to target specific vulnerabilities (e.g., buffer overflows, code injection).
+    Payloads: Post-exploitation tools (e.g., Meterpreter shells, reverse shells).
+    Auxiliaries: Scanners, fuzzers, and reconnaissance tools.
+    Used by ethical hackers and security teams to simulate attacks and harden defenses.
 
 ### SMB (Server Message Block)
 
-A Windows protocol for file/printer sharing, network communication, and resource management. Vulnerabilities in SMB (e.g., SMBv1) have been exploited in major attacks like WannaCry.
+A Windows protocol for file/printer sharing, network communication, and resource management. 
+Vulnerabilities in SMB (e.g., SMBv1) have been exploited in major attacks like WannaCry.
 
 ### MS17-010 (Eternal Blue)
 
-A critical Windows SMBv1 vulnerability (patched in 2017) allowing remote code execution via unauthenticated SMB requests. Exploited by the Eternal Blue tool to spread malware (e.g., WannaCry ransomware).
+A critical Windows SMBv1 vulnerability (patched in 2017) allowing remote code execution via unauthenticated SMB requests. 
+Exploited by the Eternal Blue tool to spread malware (e.g., WannaCry ransomware).
 
-Component	Role
-Metasploit	Framework to exploit vulnerabilities (e.g., MS17-010 via ms17_010_eternalblue module).
-SMB	Protocol exploited in MS17-010 to gain unauthorized access.
-MS17-010	Vulnerability enabling Eternal Blue attacks; patched by Microsoft in 2017.
-Eternal Blue	Exploit leveraging MS17-010 to compromise systems via SMB.
+| **Component**   | **Role**                                                                 |
+|------------------|--------------------------------------------------------------------------|
+| Metasploit       | Framework to exploit vulnerabilities (e.g., MS17-010 via ms17_010_eternalblue module). |
+| SMB              | Protocol exploited in MS17-010 to gain unauthorized access.              |
+| MS17-010         | Vulnerability enabling Eternal Blue attacks; patched by Microsoft in 2017. |
+| Eternal Blue     | Exploit leveraging MS17-010 to compromise systems via SMB.               |
 ### Why It Matters
 
     MS17-010: A high-risk vulnerability in outdated Windows systems, often targeted in ransomware campaigns.
