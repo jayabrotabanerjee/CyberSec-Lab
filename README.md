@@ -3,8 +3,7 @@
 
 **Table of Contents**
 1. [What is Nmap?](#what-is-nmap)  
-2. [How to Use Nmap](#how-to-use-nmap)  
-    1. [Command Line](#command-line) 
+2. [Command Line](#command-line) 
 3. [Basic Scanning Techniques](#basic-scanning-techniques)  
     1. [Scan a Single Target](#scan-a-single-target)  
     2. [Scan Multiple Targets](#scan-multiple-targets)  
@@ -737,9 +736,11 @@ Exploited by the Eternal Blue tool to spread malware (e.g., WannaCry ransomware)
 | Eternal Blue     | Exploit leveraging MS17-010 to compromise systems via SMB.               |
 ### Why It Matters
 
-    MS17-010: A high-risk vulnerability in outdated Windows systems, often targeted in ransomware campaigns.
-    Eternal Blue: Demonstrates how unpatched SMB vulnerabilities enable lateral movement and mass exploitation.
-    Metasploit: Provides tools to test defenses against such attacks, emphasizing the need for patching and network segmentation.
+| **Component**   | **Security Significance**                                                                                       |
+|------------------|------------------------------------------------------------------------------------------------|
+| MS17-010         | A high-risk vulnerability in outdated Windows systems, often targeted in ransomware campaigns. |
+| Eternal Blue     | Demonstrates how unpatched SMB vulnerabilities enable lateral movement and mass exploitation.  |
+| Metasploit       | Provides tools to test defenses against such attacks, emphasizing the need for patching and network segmentation. |
 
 ### Checks if the target is vulnerable to MS17-010
 
