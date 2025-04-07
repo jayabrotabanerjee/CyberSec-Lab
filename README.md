@@ -776,75 +776,34 @@ meterpreter > screenshot
 
 ### HTTP Request Methods
 ![URL BREAKDOWN](tryhackme/url.png)
-
-#### GET Request
-This is used for getting information from a web server.
-
 ![GET REQUEST](tryhackme/get.png)
-
-#### POST Request
-This is used for submitting data to the web server and potentially creating new records.
-
-#### PUT Request
-This is used for submitting data to a web server to update information.
-
-#### DELETE Request
-This is used for deleting information/records from a web server.
-
-### HTTP Status Codes
-
-HTTP status codes are broken down into 5 different ranges:
-
-#### 100-199 - Information Response
-These are sent to tell the client the first part of their request has been accepted and they should continue sending the rest of their request. These codes are no longer very common.
-
-#### 200-299 - Success
-This range of status codes is used to tell the client their request was successful.
-
-#### 300-399 - Redirection
-These are used to redirect the client's request to another resource. This can be either to a different webpage or a different website altogether.
-
-#### 400-499 - Client Errors
-Used to inform the client that there was an error with their request.
-
-#### 500-599 - Server Errors
-This is reserved for errors happening on the server-side and usually indicate quite a major problem with the server handling the request.
-
-### Common HTTP Status Codes
-
-#### 200 - OK
-The request was completed successfully.
-
-#### 201 - Created
-A resource has been created (for example a new user or new blog post).
-
-#### 301 - Moved Permanently
-This redirects the client's browser to a new webpage or tells search engines that the page has moved somewhere else and to look there instead.
-
-#### 302 - Found
-Similar to the above permanent redirect, but as the name suggests, this is only a temporary change and it may change again in the near future.
-
-#### 400 - Bad Request
-This tells the browser that something was either wrong or missing in their request. This could sometimes be used if the web server resource that is being requested expected a certain parameter that the client didn't send.
-
-#### 401 - Not Authorised
-You are not currently allowed to view this resource until you have authorised with the web application, most commonly with a username and password.
-
-#### 403 - Forbidden
-You do not have permission to view this resource whether you are logged in or not.
-
-#### 405 - Method Not Allowed
-The resource does not allow this method request, for example, you send a GET request to the resource /create-account when it was expecting a POST request instead.
-
-#### 404 - Page Not Found
-The page/resource you requested does not exist.
-
-#### 500 - Internal Service Error
-The server has encountered some kind of error with your request that it doesn't know how to handle properly.
-
-#### 503 - Service Unavailable
-This server cannot handle your request as it's either overloaded or down for maintenance.
-
+📡 HTTP Request Methods
+Method	Description
+GET	Used for getting information from a web server.
+POST	Used for submitting data to the web server and potentially creating new records.
+PUT	Used for submitting data to update existing information on a web server.
+DELETE	Used for deleting information or records from a web server.
+📊 HTTP Status Codes
+Categories
+Code Range	Type	Description
+100–199	Informational	Request received, continuing process. Rarely used today.
+200–299	Success	The request was successfully received, understood, and accepted.
+300–399	Redirection	Further action needs to be taken to complete the request.
+400–499	Client Error	The request contains bad syntax or cannot be fulfilled.
+500–599	Server Error	The server failed to fulfill a valid request.
+Common Codes
+Code	Meaning	Description
+200	OK	The request was completed successfully.
+201	Created	A new resource has been created (e.g. user, blog post).
+301	Moved Permanently	Resource has moved permanently to a new URL.
+302	Found	Temporary redirect to another URL.
+400	Bad Request	Request was invalid or missing parameters.
+401	Not Authorized	Authentication is required to access the resource.
+403	Forbidden	You do not have permission to access the resource.
+404	Page Not Found	The requested page/resource does not exist.
+405	Method Not Allowed	HTTP method not allowed for the requested resource.
+500	Internal Server Error	The server encountered an unexpected condition.
+503	Service Unavailable	Server is temporarily unable to handle the request.
 ### Common Request Headers
 
 | Header | Description |
