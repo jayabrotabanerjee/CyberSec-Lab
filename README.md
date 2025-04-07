@@ -718,10 +718,11 @@ nmap --script-updatedb
 A Ruby-based penetration testing platform developed by Rapid7, providing tools to identify, exploit, and remediate vulnerabilities. 
 It includes:
 
-    Exploits: Pre-built code to target specific vulnerabilities (e.g., buffer overflows, code injection).
-    Payloads: Post-exploitation tools (e.g., Meterpreter shells, reverse shells).
-    Auxiliaries: Scanners, fuzzers, and reconnaissance tools.
-    Used by ethical hackers and security teams to simulate attacks and harden defenses.
+   | Category     | Description                                                                 |
+|--------------|-----------------------------------------------------------------------------|
+| **Exploits** | Pre-built code to target specific vulnerabilities (e.g., buffer overflows, code injection). |
+| **Payloads** | Post-exploitation tools (e.g., Meterpreter shells, reverse shells).         |
+| **Auxiliaries** | Scanners, fuzzers, and reconnaissance tools.                                |
 
 ### SMB (Server Message Block)
 
