@@ -128,13 +128,32 @@
     5. [Common Response Headers](#common-response-headers)       
 15. [OPENSSL](#OpenSSL-Encryption-and-Decryption)
     1. [Basic Encryption and Decryption](#basic-encryption-and-decryption)
-   - [Symmetric Encryption (AES)](#symmetric-encryption-aes)
-   - [Asymmetric Encryption (RSA)](#asymmetric-encryption-rsa)
-2. [Advanced Encryption and Decryption](#advanced-encryption-and-decryption)
-   - [Encrypting with a Certificate](#encrypting-with-a-certificate)
-3. [Hashing](#hashing)
-4. [Key Management](#key-management)
-5. [Certificate Management](#certificate-management)
+       - [Symmetric Encryption (AES)](#symmetric-encryption-aes)
+       - [Asymmetric Encryption (RSA)](#asymmetric-encryption-rsa)
+    2. [Advanced Encryption and Decryption](#advanced-encryption-and-decryption)
+       - [Encrypting with a Certificate](#encrypting-with-a-certificate)
+    3. [Hashing](#hashing)
+    4. [Key Management](#key-management)
+    5. [Certificate Management](#certificate-management)
+16. [ENCRYPTION STANDARDS](#Encryption-Algorithms)
+    1. [AES (Advanced Encryption Standard)](#aes-advanced-encryption-standard)
+      - [Architecture](#aes-architecture)
+    2. [DES (Data Encryption Standard)](#des-data-encryption-standard)
+      - [Architecture](#des-architecture)
+    3. [MD5 (Message Digest Algorithm 5)](#md5-message-digest-algorithm-5)
+      - [Architecture](#md5-architecture)
+    4. [SHA (Secure Hash Algorithm)](#sha-secure-hash-algorithm)
+      - [SHA-1](#sha-1)
+      - [SHA-2](#sha-2)
+      - [SHA-3](#sha-3)
+    5. [RSA (Rivest-Shamir-Adleman)](#rsa-rivest-shamir-adleman)
+      - [Architecture](#rsa-architecture)
+    6. [Differences](#differences)
+      - [Symmetric vs. Asymmetric](#symmetric-vs-asymmetric)
+      - [Hash Functions (MD5, SHA)](#hash-functions-md5-sha)
+      - [Key Sizes and Security](#key-sizes-and-security)
+      - [Use Cases](#use-cases)
+
 
 ## Nmap Cheat Sheet       
 
@@ -1004,3 +1023,117 @@ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
 - `-keyout key.pem`: Specifies the output file for the private key.
 - `-out cert.pem`: Specifies the output file for the certificate.
 - `-days 365`: Specifies the validity period of the certificate.
+
+## Encryption Algorithms
+
+## AES (Advanced Encryption Standard)
+
+AES is a symmetric encryption algorithm that is widely used for securing sensitive data. It was adopted as a standard by the U.S. government in 2001 and is considered secure and efficient.
+
+- **Key Sizes**: AES supports key sizes of 128, 192, and 256 bits.
+- **Block Size**: AES operates on fixed block sizes of 128 bits.
+- **Rounds**: The number of rounds (transformations) depends on the key size:
+  - 10 rounds for 128-bit keys
+  - 12 rounds for 192-bit keys
+  - 14 rounds for 256-bit keys
+- **Modes of Operation**: AES can be used in various modes, including ECB, CBC, CFB, OFB, and CTR.
+
+### AES Architecture
+
+- **SubBytes**: A non-linear substitution step where each byte is replaced with another according to a lookup table.
+- **ShiftRows**: A transposition step where each row of the state is shifted cyclically a certain number of steps.
+- **MixColumns**: A mixing operation which operates on the columns of the state, combining the four bytes in each column.
+- **AddRoundKey**: Each byte of the state is combined with a byte of the round key using bitwise XOR.
+
+## DES (Data Encryption Standard)
+
+DES is an older symmetric encryption algorithm that was adopted as a standard by the U.S. government in 1977. It uses a 56-bit key and is considered insecure by today's standards.
+
+- **Key Size**: 56 bits (though the key is typically 64 bits, with 8 bits used for parity).
+- **Block Size**: 64 bits.
+- **Rounds**: DES uses 16 rounds of transformation.
+- **Modes of Operation**: DES can be used in various modes, including ECB, CBC, CFB, OFB, and CTR.
+
+### DES Architecture
+
+- **Initial Permutation (IP)**: A fixed permutation applied to the input block.
+- **Feistel Network**: A structure that applies a series of transformations to the data.
+- **Substitution and Permutation**: Each round involves substitution (using S-boxes) and permutation (using P-boxes).
+- **Final Permutation (IP^-1)**: A fixed permutation applied to the output block.
+
+## MD5 (Message Digest Algorithm 5)
+
+MD5 is a cryptographic hash function that produces a 128-bit hash value. It is widely used for checksums and data integrity verification but is considered insecure for cryptographic purposes due to vulnerabilities to collision attacks.
+
+- **Output Size**: 128 bits (16 bytes).
+- **Process**: MD5 processes the input data in 512-bit blocks and uses a series of logical and bitwise operations to produce the hash value.
+
+### MD5 Architecture
+
+- **Padding**: The input data is padded to ensure its length is a multiple of 512 bits.
+- **Initialization**: Four 32-bit variables are initialized with fixed values.
+- **Processing**: The data is processed in 512-bit blocks using a series of logical and bitwise operations.
+- **Output**: The final hash value is produced by combining the four 32-bit variables.
+
+## SHA (Secure Hash Algorithm)
+
+SHA is a family of cryptographic hash functions designed by the NSA. The most commonly used members are SHA-1, SHA-2, and SHA-3.
+
+### SHA-1
+
+- **Output Size**: 160 bits (20 bytes).
+- **Process**: SHA-1 processes the input data in 512-bit blocks and uses a series of logical and bitwise operations to produce the hash value.
+- **Security**: SHA-1 is considered insecure due to vulnerabilities to collision attacks.
+
+### SHA-2
+
+- **Variants**: SHA-2 includes several variants, including SHA-224, SHA-256, SHA-384, and SHA-512.
+- **Output Sizes**: 224, 256, 384, and 512 bits, respectively.
+- **Process**: SHA-2 processes the input data in 512-bit or 1024-bit blocks (depending on the variant) and uses a series of logical and bitwise operations to produce the hash value.
+- **Security**: SHA-2 is considered secure and is widely used.
+
+### SHA-3
+
+- **Output Sizes**: SHA-3 supports output sizes of 224, 256, 384, and 512 bits.
+- **Process**: SHA-3 uses a sponge construction, which is different from the Merkle-Damgård construction used in SHA-1 and SHA-2.
+- **Security**: SHA-3 is designed to be secure and resistant to collision attacks.
+
+## RSA (Rivest-Shamir-Adleman)
+
+RSA is an asymmetric encryption algorithm that is widely used for secure data transmission. It uses a pair of keys: a public key for encryption and a private key for decryption.
+
+- **Key Sizes**: RSA key sizes typically range from 1024 to 4096 bits, with 2048 bits being a common choice.
+- **Process**: RSA involves the generation of a key pair, encryption using the public key, and decryption using the private key.
+- **Security**: RSA is considered secure when using sufficiently large key sizes.
+
+### RSA Architecture
+
+- **Key Generation**: Involves selecting two large prime numbers, computing their product, and generating the public and private keys.
+- **Encryption**: The plaintext is encrypted using the public key and a series of modular exponentiation operations.
+- **Decryption**: The ciphertext is decrypted using the private key and a series of modular exponentiation operations.
+
+## Differences
+
+### Symmetric vs. Asymmetric
+
+- **Symmetric Encryption (AES, DES)**: Uses the same key for encryption and decryption. Faster and more efficient but requires secure key distribution.
+- **Asymmetric Encryption (RSA)**: Uses a pair of keys (public and private). Slower but does not require secure key distribution.
+
+### Hash Functions (MD5, SHA)
+
+- **MD5**: Produces a 128-bit hash value. Considered insecure due to vulnerabilities to collision attacks.
+- **SHA**: Produces hash values of varying sizes (160, 224, 256, 384, 512 bits). SHA-2 and SHA-3 are considered secure.
+
+### Key Sizes and Security
+
+- **AES**: Supports key sizes of 128, 192, and 256 bits. Considered secure.
+- **DES**: Uses a 56-bit key. Considered insecure.
+- **RSA**: Key sizes range from 1024 to 4096 bits. Considered secure with sufficiently large key sizes.
+
+### Use Cases
+
+- **AES**: Widely used for encrypting sensitive data, such as files, communications, and storage.
+- **DES**: Historically used for encrypting data but is now considered insecure.
+- **MD5**: Used for checksums and data integrity verification but is considered insecure for cryptographic purposes.
+- **SHA**: Used for data integrity verification, digital signatures, and password storage.
+- **RSA**: Used for secure data transmission, digital signatures, and key exchange.
