@@ -112,13 +112,14 @@
     5. [Troubleshoot Scripts](#troubleshoot-scripts)  
     6. [Update the Script Database](#update-the-script-database)
 12. Eternal Blue 
-    1. [Introduction to Metasploit](#Metasploit-Framework)
-    2. [What is SMB](#SMB (Server-Message-Block))
-    3. [What is MS17_010](#MS17-010 (Eternal Blue))
-    4. [Summary of Eternal Blue,Metasploit and MS17_010](#Why-It-Matters)                   
-    5. [Scanning for Vulnerability to MS17_010](#Checks-if-the-target-is-vulnerable-to-MS17-010)
-    6. [Eternal Blue Exploit]( #EternalBlue-exploit)
-    7. [Post exploit session]( #Meterpreter-Session)
+    1. [What is Eternal Blue]( #Eternal-Blue-Exploit)
+    2. [Introduction to Metasploit](#Metasploit-Framework)
+    3. [What is SMB](#SMB (Server-Message-Block))
+    4. [What is MS17_010](#MS17-010 )
+    5. [Summary of Eternal Blue,Metasploit and MS17_010](#Why-It-Matters)                   
+    6. [Scanning for Vulnerability to MS17_010](#Checks-if-the-target-is-vulnerable-to-MS17-010)
+    7. [Eternal Blue Exploit]( #EternalBlue-exploit)
+    8. [Post exploit session]( #Meterpreter-Session)
 14. [HTTP](#HTTP)
     1. [HTTP Request Methods](#http-request-methods)
     2. [HTTP Status Codes](#http-status-codes)
@@ -721,6 +722,7 @@ nmap --script-updatedb
 ```
 
 ## Eternal Blue Exploit
+EternalBlue is a cyberattack exploit developed by the U.S. National Security Agency (NSA) that was leaked by the hacker group Shadow Brokers in April 2017. It targets a vulnerability in Microsoft's implementation of the Server Message Block (SMB) protocol. The exploit allows an attacker to execute arbitrary code on a target system, potentially leading to full system compromise.
 
 ### Metasploit Framework
 
@@ -738,7 +740,7 @@ It includes:
 A Windows protocol for file/printer sharing, network communication, and resource management. 
 Vulnerabilities in SMB (e.g., SMBv1) have been exploited in major attacks like WannaCry.
 
-### MS17-010 (Eternal Blue)
+### MS17-010 
 
 A critical Windows SMBv1 vulnerability (patched in 2017) allowing remote code execution via unauthenticated SMB requests. 
 Exploited by the Eternal Blue tool to spread malware (e.g., WannaCry ransomware).
