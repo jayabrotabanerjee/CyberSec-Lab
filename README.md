@@ -776,34 +776,48 @@ meterpreter > screenshot
 
 ### HTTP Request Methods
 ![URL BREAKDOWN](tryhackme/url.png)
+
+
+### HTTP Request Methods
+
+| Method  | Description                                                                 |
+|---------|-----------------------------------------------------------------------------|
+| GET     | Used for getting information from a web server.                            |
+| POST    | Used for submitting data to the web server and potentially creating records. |
+| PUT     | Used for submitting data to update existing information on a web server.   |
+| DELETE  | Used for deleting information or records from a web server.                |
+
 ![GET REQUEST](tryhackme/get.png)
-📡 HTTP Request Methods
-Method	Description
-GET	Used for getting information from a web server.
-POST	Used for submitting data to the web server and potentially creating new records.
-PUT	Used for submitting data to update existing information on a web server.
-DELETE	Used for deleting information or records from a web server.
-📊 HTTP Status Codes
-Categories
-Code Range	Type	Description
-100–199	Informational	Request received, continuing process. Rarely used today.
-200–299	Success	The request was successfully received, understood, and accepted.
-300–399	Redirection	Further action needs to be taken to complete the request.
-400–499	Client Error	The request contains bad syntax or cannot be fulfilled.
-500–599	Server Error	The server failed to fulfill a valid request.
-Common Codes
-Code	Meaning	Description
-200	OK	The request was completed successfully.
-201	Created	A new resource has been created (e.g. user, blog post).
-301	Moved Permanently	Resource has moved permanently to a new URL.
-302	Found	Temporary redirect to another URL.
-400	Bad Request	Request was invalid or missing parameters.
-401	Not Authorized	Authentication is required to access the resource.
-403	Forbidden	You do not have permission to access the resource.
-404	Page Not Found	The requested page/resource does not exist.
-405	Method Not Allowed	HTTP method not allowed for the requested resource.
-500	Internal Server Error	The server encountered an unexpected condition.
-503	Service Unavailable	Server is temporarily unable to handle the request.
+
+### HTTP Status Code Ranges
+
+| Code Range | Type             | Description                                                                 |
+|------------|------------------|-----------------------------------------------------------------------------|
+| 100–199    | Informational     | Request received, continuing process. Mostly deprecated.                   |
+| 200–299    | Success           | The request was successfully received, understood, and accepted.          |
+| 300–399    | Redirection       | Further action needs to be taken to complete the request.                 |
+| 400–499    | Client Error      | The request contains bad syntax or cannot be fulfilled.                   |
+| 500–599    | Server Error      | The server failed to fulfill a valid request.                             |
+
+
+
+### Common HTTP Status Codes
+
+| Code | Meaning               | Description                                                                 |
+|------|-----------------------|-----------------------------------------------------------------------------|
+| 200  | OK                    | The request was completed successfully.                                     |
+| 201  | Created               | A resource has been created (e.g., a new user or blog post).                |
+| 301  | Moved Permanently     | The resource has been permanently moved to a new location.                  |
+| 302  | Found                 | The resource is temporarily located at a different URI.                     |
+| 400  | Bad Request           | The server could not understand the request due to invalid syntax.          |
+| 401  | Not Authorized        | Authentication is required and has failed or has not yet been provided.     |
+| 403  | Forbidden             | You do not have permission to access the requested resource.                |
+| 404  | Page Not Found        | The requested resource could not be found on the server.                    |
+| 405  | Method Not Allowed    | The request method is known by the server but is not supported.             |
+| 500  | Internal Server Error | The server encountered an error and could not complete the request.         |
+| 503  | Service Unavailable   | The server is not ready to handle the request, often due to maintenance.    |
+
+
 ### Common Request Headers
 
 | Header | Description |
