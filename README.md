@@ -774,7 +774,6 @@ meterpreter > screenshot
 ```
 ## HTTP 
 
-### HTTP Request Methods
 ![URL BREAKDOWN](tryhackme/url.png)
 
 
