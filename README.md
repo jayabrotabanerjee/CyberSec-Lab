@@ -119,7 +119,10 @@
     5. [Scanning for Vulnerability to MS17_010](#Checks-if-the-target-is-vulnerable-to-MS17-010)
     6. [Eternal Blue Exploit]( #EternalBlue-exploit)
     7. [Post exploit session]( #Meterpreter-Session)
-       
+14. [HTTP](#HTTP)
+    1. [HTTP Request Methods](#http-request-methods)
+    2. [HTTP Status Codes](#http-status-codes)
+    3. [Common HTTP Status Codes](#common-http-status-codes)       
 
 ## Nmap Cheat Sheet       
 
@@ -767,3 +770,71 @@ meterpreter > ps
 meterpreter > migrate 4536   
 meterpreter > screenshot      
 ```
+## HTTP 
+### HTTP Request Methods
+
+#### GET Request
+This is used for getting information from a web server.
+
+#### POST Request
+This is used for submitting data to the web server and potentially creating new records.
+
+#### PUT Request
+This is used for submitting data to a web server to update information.
+
+#### DELETE Request
+This is used for deleting information/records from a web server.
+
+### HTTP Status Codes
+
+HTTP status codes are broken down into 5 different ranges:
+
+#### 100-199 - Information Response
+These are sent to tell the client the first part of their request has been accepted and they should continue sending the rest of their request. These codes are no longer very common.
+
+#### 200-299 - Success
+This range of status codes is used to tell the client their request was successful.
+
+#### 300-399 - Redirection
+These are used to redirect the client's request to another resource. This can be either to a different webpage or a different website altogether.
+
+#### 400-499 - Client Errors
+Used to inform the client that there was an error with their request.
+
+#### 500-599 - Server Errors
+This is reserved for errors happening on the server-side and usually indicate quite a major problem with the server handling the request.
+
+### Common HTTP Status Codes
+
+#### 200 - OK
+The request was completed successfully.
+
+#### 201 - Created
+A resource has been created (for example a new user or new blog post).
+
+#### 301 - Moved Permanently
+This redirects the client's browser to a new webpage or tells search engines that the page has moved somewhere else and to look there instead.
+
+#### 302 - Found
+Similar to the above permanent redirect, but as the name suggests, this is only a temporary change and it may change again in the near future.
+
+#### 400 - Bad Request
+This tells the browser that something was either wrong or missing in their request. This could sometimes be used if the web server resource that is being requested expected a certain parameter that the client didn't send.
+
+#### 401 - Not Authorised
+You are not currently allowed to view this resource until you have authorised with the web application, most commonly with a username and password.
+
+#### 403 - Forbidden
+You do not have permission to view this resource whether you are logged in or not.
+
+#### 405 - Method Not Allowed
+The resource does not allow this method request, for example, you send a GET request to the resource /create-account when it was expecting a POST request instead.
+
+#### 404 - Page Not Found
+The page/resource you requested does not exist.
+
+#### 500 - Internal Service Error
+The server has encountered some kind of error with your request that it doesn't know how to handle properly.
+
+#### 503 - Service Unavailable
+This server cannot handle your request as it's either overloaded or down for maintenance.
