@@ -776,6 +776,8 @@ meterpreter > screenshot
 #### GET Request
 This is used for getting information from a web server.
 
+![GET REQUEST](tryhackme/get.png)
+
 #### POST Request
 This is used for submitting data to the web server and potentially creating new records.
 
