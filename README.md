@@ -122,7 +122,9 @@
 14. [HTTP](#HTTP)
     1. [HTTP Request Methods](#http-request-methods)
     2. [HTTP Status Codes](#http-status-codes)
-    3. [Common HTTP Status Codes](#common-http-status-codes)       
+    3. [Common HTTP Status Codes](#common-http-status-codes)
+    4. [Common Request Headers](#common-request-headers)
+    5. [Common Response Headers](#common-response-headers)       
 
 ## Nmap Cheat Sheet       
 
@@ -840,3 +842,22 @@ The server has encountered some kind of error with your request that it doesn't 
 
 #### 503 - Service Unavailable
 This server cannot handle your request as it's either overloaded or down for maintenance.
+
+### Common Request Headers
+
+| Header | Description |
+|--------|-------------|
+| **Host** | Some web servers host multiple websites so by providing the host headers you can tell it which one you require, otherwise you'll just receive the default website for the server. |
+| **User-Agent** | This is your browser software and version number, telling the web server your browser software helps it format the website properly for your browser and also some elements of HTML, JavaScript and CSS are only available in certain browsers. |
+| **Content-Length** | When sending data to a web server such as in a form, the content length tells the web server how much data to expect in the web request. This way the server can ensure it isn't missing any data. |
+| **Accept-Encoding** | Tells the web server what types of compression methods the browser supports so the data can be made smaller for transmitting over the internet. |
+| **Cookie** | Data sent to the server to help remember your information (see cookies task for more information). |
+
+### Common Response Headers
+
+| Header | Description |
+|--------|-------------|
+| **Set-Cookie** | Information to store which gets sent back to the web server on each request (see cookies task for more information). |
+| **Cache-Control** | How long to store the content of the response in the browser's cache before it requests it again. |
+| **Content-Type** | This tells the client what type of data is being returned, i.e., HTML, CSS, JavaScript, Images, PDF, Video, etc. Using the content-type header the browser then knows how to process the data. |
+| **Content-Encoding** | What method has been used to compress the data to make it smaller when sending it over the internet. |
