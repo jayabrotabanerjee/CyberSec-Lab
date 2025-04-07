@@ -125,6 +125,15 @@
     3. [Common HTTP Status Codes](#common-http-status-codes)
     4. [Common Request Headers](#common-request-headers)
     5. [Common Response Headers](#common-response-headers)       
+15. [OPENSSL](#OpenSSL-Encryption-and-Decryption)
+    1. [Basic Encryption and Decryption](#basic-encryption-and-decryption)
+   - [Symmetric Encryption (AES)](#symmetric-encryption-aes)
+   - [Asymmetric Encryption (RSA)](#asymmetric-encryption-rsa)
+2. [Advanced Encryption and Decryption](#advanced-encryption-and-decryption)
+   - [Encrypting with a Certificate](#encrypting-with-a-certificate)
+3. [Hashing](#hashing)
+4. [Key Management](#key-management)
+5. [Certificate Management](#certificate-management)
 
 ## Nmap Cheat Sheet       
 
@@ -838,3 +847,158 @@ meterpreter > screenshot
 | **Content-Type** | This tells the client what type of data is being returned, i.e., HTML, CSS, JavaScript, Images, PDF, Video, etc. Using the content-type header the browser then knows how to process the data. |
 | **Content-Encoding** | What method has been used to compress the data to make it smaller when sending it over the internet. |
 
+# OpenSSL Encryption and Decryption
+
+OpenSSL is a robust, full-featured open-source toolkit implementing the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols, as well as a general-purpose cryptography library. 
+
+## Basic Encryption and Decryption
+
+### Symmetric Encryption (AES)
+
+**Encrypting a File with AES:**
+
+```sh
+openssl enc -aes-256-cbc -salt -in plaintext.txt -out encrypted.txt -k your_password
+```
+
+- `-aes-256-cbc`: Specifies the AES-256-CBC encryption algorithm.
+- `-salt`: Adds a salt to the encryption process.
+- `-in plaintext.txt`: Specifies the input file.
+- `-out encrypted.txt`: Specifies the output file.
+- `-k your_password`: Specifies the password for encryption.
+
+**Decrypting a File with AES:**
+
+```sh
+openssl enc -aes-256-cbc -d -in encrypted.txt -out decrypted.txt -k your_password
+```
+
+- `-d`: Specifies decryption mode.
+- `-in encrypted.txt`: Specifies the input file.
+- `-out decrypted.txt`: Specifies the output file.
+- `-k your_password`: Specifies the password for decryption.
+
+### Asymmetric Encryption (RSA)
+
+**Generating an RSA Key Pair:**
+
+```sh
+openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+openssl rsa -pubout -in private_key.pem -out public_key.pem
+```
+
+- `genpkey`: Generates a private key.
+- `-algorithm RSA`: Specifies the RSA algorithm.
+- `-out private_key.pem`: Specifies the output file for the private key.
+- `-pkeyopt rsa_keygen_bits:2048`: Specifies the key size.
+- `rsa`: Converts the private key to a public key.
+- `-pubout`: Specifies public key output.
+- `-in private_key.pem`: Specifies the input private key file.
+- `-out public_key.pem`: Specifies the output file for the public key.
+
+**Encrypting a File with a Public Key:**
+
+```sh
+openssl rsautl -encrypt -inkey public_key.pem -pubin -in plaintext.txt -out encrypted.txt
+```
+
+- `rsautl`: Performs RSA utility operations.
+- `-encrypt`: Specifies encryption mode.
+- `-inkey public_key.pem`: Specifies the public key file.
+- `-pubin`: Specifies that the input key is a public key.
+- `-in plaintext.txt`: Specifies the input file.
+- `-out encrypted.txt`: Specifies the output file.
+
+**Decrypting a File with a Private Key:**
+
+```sh
+openssl rsautl -decrypt -inkey private_key.pem -in encrypted.txt -out decrypted.txt
+```
+
+- `-decrypt`: Specifies decryption mode.
+- `-inkey private_key.pem`: Specifies the private key file.
+- `-in encrypted.txt`: Specifies the input file.
+- `-out decrypted.txt`: Specifies the output file.
+
+## Advanced Encryption and Decryption
+
+### Encrypting with a Certificate
+
+**Encrypting a File with a Certificate:**
+
+```sh
+openssl smime -encrypt -in plaintext.txt -out encrypted.pem -certfile certificate.crt
+```
+
+- `smime`: Performs S/MIME operations.
+- `-encrypt`: Specifies encryption mode.
+- `-in plaintext.txt`: Specifies the input file.
+- `-out encrypted.pem`: Specifies the output file.
+- `-certfile certificate.crt`: Specifies the certificate file.
+
+**Decrypting a File with a Private Key:**
+
+```sh
+openssl smime -decrypt -in encrypted.pem -out decrypted.txt -inkey private_key.pem
+```
+
+- `-decrypt`: Specifies decryption mode.
+- `-in encrypted.pem`: Specifies the input file.
+- `-out decrypted.txt`: Specifies the output file.
+- `-inkey private_key.pem`: Specifies the private key file.
+
+## Hashing
+
+**Generating an MD5 Hash:**
+
+```sh
+echo -n "your_string" | openssl dgst -md5
+```
+
+- `dgst`: Performs digest operations.
+- `-md5`: Specifies the MD5 algorithm.
+
+**Generating a SHA-256 Hash:**
+
+```sh
+echo -n "your_string" | openssl dgst -sha256
+```
+
+- `-sha256`: Specifies the SHA-256 algorithm.
+
+## Key Management
+
+**Converting a PEM Key to DER Format:**
+
+```sh
+openssl rsa -in private_key.pem -outform DER -out private_key.der
+```
+
+- `-in private_key.pem`: Specifies the input PEM file.
+- `-outform DER`: Specifies the output format as DER.
+- `-out private_key.der`: Specifies the output DER file.
+
+**Converting a DER Key to PEM Format:**
+
+```sh
+openssl rsa -in private_key.der -inform DER -out private_key.pem
+```
+
+- `-in private_key.der`: Specifies the input DER file.
+- `-inform DER`: Specifies the input format as DER.
+- `-out private_key.pem`: Specifies the output PEM file.
+
+## Certificate Management
+
+**Generating a Self-Signed Certificate:**
+
+```sh
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
+```
+
+- `req`: Performs certificate request and certificate generating operations.
+- `-x509`: Outputs a self-signed certificate.
+- `-newkey rsa:2048`: Generates a new RSA key of 2048 bits.
+- `-keyout key.pem`: Specifies the output file for the private key.
+- `-out cert.pem`: Specifies the output file for the certificate.
+- `-days 365`: Specifies the validity period of the certificate.
