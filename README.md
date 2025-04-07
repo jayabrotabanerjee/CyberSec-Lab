@@ -773,7 +773,9 @@ meterpreter > migrate 4536
 meterpreter > screenshot      
 ```
 ## HTTP 
+
 ### HTTP Request Methods
+![URL BREAKDOWN](tryhackme/url.png)
 
 #### GET Request
 This is used for getting information from a web server.
@@ -853,6 +855,7 @@ This server cannot handle your request as it's either overloaded or down for mai
 | **Accept-Encoding** | Tells the web server what types of compression methods the browser supports so the data can be made smaller for transmitting over the internet. |
 | **Cookie** | Data sent to the server to help remember your information (see cookies task for more information). |
 
+![COOKIES](tryhackme/cookies.png)
 ### Common Response Headers
 
 | Header | Description |
@@ -861,3 +864,4 @@ This server cannot handle your request as it's either overloaded or down for mai
 | **Cache-Control** | How long to store the content of the response in the browser's cache before it requests it again. |
 | **Content-Type** | This tells the client what type of data is being returned, i.e., HTML, CSS, JavaScript, Images, PDF, Video, etc. Using the content-type header the browser then knows how to process the data. |
 | **Content-Encoding** | What method has been used to compress the data to make it smaller when sending it over the internet. |
+
